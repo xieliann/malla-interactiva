@@ -1,0 +1,42 @@
+body {
+  font-family: sans-serif;
+  background-color: #fff0f5;
+  color: #4a001f;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #b30059;
+}
+
+.ciclo {
+  margin-bottom: 20px;
+  border: 2px solid #ff99cc;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #ffe6f0;
+}
+
+.curso {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #ffb3d9;
+  color: #4a001f;
+  cursor: pointer;
+  border: 1px solid #b30059;
+  transition: background 0.3s ease;
+}
+
+.curso.completado {
+  text-decoration: line-through;
+  background-color: #f4c2c2;
+  color: #777;
+}
+
+.curso.habilitado {
+  background-color: #ffe6f0;
+  border: 2px dashed #b30059;
+}
