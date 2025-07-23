@@ -1,5 +1,6 @@
-export const ciclos = [
-  {
+window.malla = {
+  ...
+};
     numero: 1,
     cursos: [
       { nombre: "Quimica", prerequisitos: [] },
