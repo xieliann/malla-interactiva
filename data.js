@@ -1,4 +1,5 @@
-export const malla = {
+export const malla = [
+  {
     numero: 1,
     cursos: [
       { nombre: "Quimica", prerequisitos: [] },
@@ -82,3 +83,4 @@ export const malla = {
     ]
   }
 ];
+
