@@ -1,6 +1,4 @@
-// data.js
-
-const malla = [
+const malla = {
   'Ciclo 1': [
     'Química',
     'Matemática',
@@ -72,20 +70,4 @@ export const courseRequirements = {
     'Fisiopatología I',
     'Fisiopatología II',
     'Inmunología',
-    'Morfofisiología II',
-    'Morfofisiología III',
-    'Morfofisiología IV'
-  ],
-  'Semiología': [
-    'Fisiopatología I',
-    'Fisiopatología II',
-    'Inmunología',
-    'Morfofisiología II',
-    'Morfofisiología III',
-    'Morfofisiología IV'
-  ],
-  'Farmacología': ['Infectología básica'],
-  'Apoyo al Diagnóstico': ['Morfofisiología IV'],
-  'Anatomía Patológica': ['Fisiopatología II']
-};
-window.malla = malla;
+    'Morfofisiolog
