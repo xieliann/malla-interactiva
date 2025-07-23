@@ -93,15 +93,15 @@ document.addEventListener("DOMContentLoaded", () => {
 function renderCiclos() {
   const contenedor = document.getElementById("malla");
 
-  Object.entries(malla).forEach(([ciclo, cursos]) => {
+  malla.forEach(ciclo => {
     const columna = document.createElement("div");
     columna.className = "ciclo";
 
     const titulo = document.createElement("h3");
-    titulo.textContent = ciclo;
+    titulo.textContent = `Ciclo ${ciclo.numero}`;
     columna.appendChild(titulo);
 
-    cursos.forEach(curso => {
+    ciclo.cursos.forEach(curso => {
       const div = document.createElement("div");
       div.className = "curso";
       div.textContent = curso.nombre;
@@ -132,7 +132,7 @@ function actualizarColores() {
 
     if (!curso) return;
 
-    const requisitosCompletos = curso.requisitos.every(r => completados.has(r));
+    const requisitosCompletos = curso.prerequisitos.every(r => completados.has(r));
 
     if (completados.has(nombre)) {
       div.classList.add("completado");
@@ -147,8 +147,8 @@ function actualizarColores() {
 }
 
 function buscarCurso(nombre) {
-  for (const ciclo in malla) {
-    for (const curso of malla[ciclo]) {
+  for (const ciclo of malla) {
+    for (const curso of ciclo.cursos) {
       if (curso.nombre === nombre) {
         return curso;
       }
