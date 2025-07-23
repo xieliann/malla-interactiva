@@ -1,12 +1,9 @@
 let cursos = {};
 let completados = new Set();
 
-fetch('data.json')
-  .then(res => res.json())
-  .then(data => {
-    cursos = data;
-    renderCiclos();
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarMalla(window.malla);
+});
 
 function renderCiclos() {
   const container = document.getElementById('ciclos-container');
