@@ -46,20 +46,30 @@ const malla = {
   ]
 };
 
-// Lógica de interacción
 const completados = new Set();
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderCiclos();
+  crearMalla(window.malla);
+});
+
+function renderCiclos() {
+  const ciclos = Object.values(window.malla);
+  if (!ciclos) return;
+}
 
 function crearMalla(malla) {
   const contenedor = document.getElementById("malla");
+  contenedor.innerHTML = ""; // Limpia antes de renderizar
 
   for (const ciclo in malla) {
     const columna = document.createElement("div");
     columna.className = "ciclo";
-    
+
     const titulo = document.createElement("h3");
     titulo.textContent = ciclo;
     columna.appendChild(titulo);
-    
+
     malla[ciclo].forEach(curso => {
       const div = document.createElement("div");
       div.className = "curso";
@@ -103,8 +113,8 @@ function actualizarColores() {
 }
 
 function buscarCurso(nombre) {
-  for (const ciclo in malla) {
-    for (const curso of malla[ciclo]) {
+  for (const ciclo in window.malla) {
+    for (const curso of window.malla[ciclo]) {
       if (curso.nombre === nombre) {
         return curso;
       }
