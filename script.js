@@ -1,4 +1,4 @@
-import { malla } from  "./data.js"
+import { malla } from './data.js';
 
 const completados = new Set();
 
