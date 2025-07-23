@@ -1,115 +1,174 @@
+# Generar la estructura base del HTML con los datos proporcionados
+cursos_por_ciclo = {
+    "Ciclo I": [
+        "Biología Celular y Molecular",
+        "Química General",
+        "Matemática Básica",
+        "Comunicación Integral",
+        "Realidad Nacional y Mundial",
+        "Psicología General"
+    ],
+    "Ciclo II": [
+        "Bioquímica Humana",
+        "Química Orgánica",
+        "Anatomía General",
+        "Filosofía y Ética",
+        "Sociología de la Salud",
+        "Métodos de Estudio"
+    ],
+    "Ciclo III": [
+        "Fisiología Humana I",
+        "Bioética",
+        "Anatomía del Aparato Locomotor",
+        "Microbiología y Parasitología",
+        "Salud Pública y Comunitaria",
+        "Desarrollo Humano"
+    ],
+    "Ciclo IV": [
+        "Fisiología Humana II",
+        "Anatomía de Cabeza, Cuello y Tronco",
+        "Inmunología Médica",
+        "Metodología de la Investigación",
+        "Salud Ambiental",
+        "Estadística Aplicada"
+    ],
+    "Ciclo V": [
+        "Patología General",
+        "Embriología Humana",
+        "Farmacología General",
+        "Semiología Clínica I",
+        "Psicología Médica",
+        "Ecología y Desarrollo Sostenible"
+    ],
+    "Ciclo VI": [
+        "Fisiopatología Humana",
+        "Farmacología Clínica",
+        "Semiología Clínica II",
+        "Imagenología",
+        "Salud Mental",
+        "Antropología Médica"
+    ]
+}
+
+# HTML base con contenedor por ciclos y cursos, sin prerrequisitos aún
+html_header = """
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Malla Interactiva Medicina Humana</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      color: #444;
-    }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .ciclo {
-      background: #ffe6f0;
-      padding: 15px;
-      border-radius: 10px;
-      width: 250px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .ciclo h2 {
-      text-align: center;
-      color: #b3005e;
-    }
-    .curso {
-      background: #f1b5d1;
-      margin: 6px 0;
-      padding: 8px;
-      border-radius: 6px;
-      text-align: left;
-      font-size: 14px;
-      line-height: 1.3em;
-      transition: background 0.3s;
-    }
-    .curso:hover {
-      background: #d94f9a;
-      color: white;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Malla de Medicina Humana</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffeef3;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #c2185b;
+        }
+        .ciclo {
+            margin-bottom: 20px;
+        }
+        .ciclo h2 {
+            color: #ad1457;
+        }
+        .curso {
+            display: inline-block;
+            background-color: #f8bbd0;
+            color: #880e4f;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .curso.completado {
+            text-decoration: line-through;
+            background-color: #f48fb1;
+            color: #6a1b4d;
+        }
+        .curso.habilitado {
+            background-color: #f06292;
+            color: white;
+        }
+        .curso.inactivo {
+            background-color: #fce4ec;
+            color: #ad1457;
+            opacity: 0.6;
+        }
+    </style>
 </head>
 <body>
+    <h1>Malla Interactiva - Medicina Humana</h1>
+"""
 
-<h1>Malla Interactiva - Medicina Humana</h1>
-<div class="container">
+html_footer = """
+    <script>
+        const prerequisitos = {
+            "Anatomía General": ["Biología Celular y Molecular"],
+            "Bioquímica Humana": ["Química General"],
+            "Fisiología Humana I": ["Anatomía General", "Bioquímica Humana"],
+            "Fisiología Humana II": ["Fisiología Humana I"],
+            "Anatomía del Aparato Locomotor": ["Anatomía General"],
+            "Inmunología Médica": ["Microbiología y Parasitología"],
+            "Anatomía de Cabeza, Cuello y Tronco": ["Anatomía del Aparato Locomotor"],
+            "Patología General": ["Fisiología Humana II"],
+            "Embriología Humana": ["Anatomía General"],
+            "Farmacología General": ["Bioquímica Humana"],
+            "Semiología Clínica I": ["Fisiología Humana II", "Anatomía de Cabeza, Cuello y Tronco"],
+            "Fisiopatología Humana": ["Patología General"],
+            "Farmacología Clínica": ["Farmacología General"],
+            "Semiología Clínica II": ["Semiología Clínica I"],
+            "Imagenología": ["Semiología Clínica I"]
+        };
 
-  <div class="ciclo">
-    <h2>Ciclo 1</h2>
-    <div class="curso">Química (5 cr) - Nota: 15</div>
-    <div class="curso">Matemática (3 cr) - Nota: 13</div>
-    <div class="curso">Lengua y Oratoria (3 cr) - Nota: 18</div>
-    <div class="curso">Introducción a la Medicina (2 cr) - Nota: 17</div>
-    <div class="curso">Desempeño Universitario (2 cr) - Nota: 19</div>
-    <div class="curso">Biología Celular y Molecular (6 cr) - Nota: 13</div>
-  </div>
+        document.querySelectorAll('.curso').forEach(el => {
+            el.addEventListener('click', () => {
+                el.classList.toggle('completado');
+                actualizarCursos();
+            });
+        });
 
-  <div class="ciclo">
-    <h2>Ciclo 2</h2>
-    <div class="curso">Redacción General (3 cr) - Req: Lengua y Oratoria - Nota: 18</div>
-    <div class="curso">Realidad Nacional (2 cr) - Nota: 20</div>
-    <div class="curso">Morfofisiología I (6 cr)</div>
-    <div class="curso">Intro. a la Investigación (3 cr) - Nota: 19</div>
-    <div class="curso">Bioquímica (5 cr) - Req: Química - Nota: 14</div>
-    <div class="curso">Anatomía General (3 cr)</div>
-  </div>
+        function actualizarCursos() {
+            const completados = Array.from(document.querySelectorAll('.curso.completado')).map(e => e.dataset.name);
+            document.querySelectorAll('.curso').forEach(el => {
+                const nombre = el.dataset.name;
+                if (el.classList.contains('completado')) return;
+                const reqs = prerequisitos[nombre] || [];
+                const habilitado = reqs.every(r => completados.includes(r));
+                if (reqs.length === 0) {
+                    el.classList.remove('habilitado', 'inactivo');
+                } else if (habilitado) {
+                    el.classList.add('habilitado');
+                    el.classList.remove('inactivo');
+                } else {
+                    el.classList.add('inactivo');
+                    el.classList.remove('habilitado');
+                }
+            });
+        }
 
-  <div class="ciclo">
-    <h2>Ciclo 3</h2>
-    <div class="curso">Morfofisiología II (7 cr)</div>
-    <div class="curso">Inmunología (3 cr)</div>
-    <div class="curso">Genética Médica (3 cr)</div>
-    <div class="curso">Filosofía (3 cr) - Nota: 20</div>
-    <div class="curso">Estadística General (4 cr) - Nota: 14</div>
-    <div class="curso">Educación Ambiental (2 cr) - Nota: 17</div>
-  </div>
-
-  <div class="ciclo">
-    <h2>Ciclo 4</h2>
-    <div class="curso">Morfofisiología III (7 cr)</div>
-    <div class="curso">Infectología Básica (5 cr)</div>
-    <div class="curso">Fisiopatología I (4 cr)</div>
-    <div class="curso">Desarrollo y Crecimiento (3 cr)</div>
-    <div class="curso">Bioética (2 cr)</div>
-  </div>
-
-  <div class="ciclo">
-    <h2>Ciclo 5</h2>
-    <div class="curso">Salud Mental (4 cr)</div>
-    <div class="curso">Morfofisiología IV (6 cr)</div>
-    <div class="curso">Fund. de Medicina Intercultural (2 cr)</div>
-    <div class="curso">Fisiopatología II (5 cr)</div>
-    <div class="curso">Bioestadística (2 cr) - Nota: 14</div>
-  </div>
-
-  <div class="ciclo">
-    <h2>Ciclo 6</h2>
-    <div class="curso">Semiología basada en simulación (2 cr)</div>
-    <div class="curso">Semiología (5 cr)</div>
-    <div class="curso">Farmacología (6 cr)</div>
-    <div class="curso">Apoyo al Diagnóstico (3 cr)</div>
-    <div class="curso">Anatomía Patológica (4 cr)</div>
-  </div>
-
-</div>
-
+        actualizarCursos();
+    </script>
 </body>
 </html>
+"""
+
+# Generar el contenido del HTML
+html_body = ""
+for ciclo, cursos in cursos_por_ciclo.items():
+    html_body += f'<div class="ciclo">\n<h2>{ciclo}</h2>\n'
+    for curso in cursos:
+        html_body += f'<div class="curso" data-name="{curso}">{curso}</div>\n'
+    html_body += "</div>\n"
+
+# Concatenar todo
+html_output = html_header + html_body + html_footer
+
+# Guardar como archivo
+path = "/mnt/data/index.html"
+with open(path, "w", encoding="utf-8") as f:
+    f.write(html_output)
+
+path
