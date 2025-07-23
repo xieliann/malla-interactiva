@@ -1,25 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Malla Interactiva 3D</title>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <title>Malla Interactiva Medicina Humana</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #444;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .ciclo {
+      background: #ffe6f0;
+      padding: 15px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .ciclo h2 {
+      text-align: center;
+      color: #b3005e;
+    }
+    .curso {
+      background: #f1b5d1;
+      margin: 6px 0;
+      padding: 8px;
+      border-radius: 6px;
+      text-align: left;
+      font-size: 14px;
+      line-height: 1.3em;
+      transition: background 0.3s;
+    }
+    .curso:hover {
+      background: #d94f9a;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <div id="malla" style="width:100%;height:100vh;"></div>
-  <script>
-    var data = [{
-      type: 'mesh3d',
-      x: [0, 1, 2, 0],
-      y: [0, 0, 1, 2],
-      z: [0, 2, 0, 1],
-      i: [0, 0, 0],
-      j: [1, 2, 3],
-      k: [2, 3, 1],
-      opacity: 0.5,
-      color: 'lightblue'
-    }];
-    Plotly.newPlot('malla', data);
-  </script>
+
+<h1>Malla Interactiva - Medicina Humana</h1>
+<div class="container">
+
+  <div class="ciclo">
+    <h2>Ciclo 1</h2>
+    <div class="curso">Química (5 cr) - Nota: 15</div>
+    <div class="curso">Matemática (3 cr) - Nota: 13</div>
+    <div class="curso">Lengua y Oratoria (3 cr) - Nota: 18</div>
+    <div class="curso">Introducción a la Medicina (2 cr) - Nota: 17</div>
+    <div class="curso">Desempeño Universitario (2 cr) - Nota: 19</div>
+    <div class="curso">Biología Celular y Molecular (6 cr) - Nota: 13</div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 2</h2>
+    <div class="curso">Redacción General (3 cr) - Req: Lengua y Oratoria - Nota: 18</div>
+    <div class="curso">Realidad Nacional (2 cr) - Nota: 20</div>
+    <div class="curso">Morfofisiología I (6 cr)</div>
+    <div class="curso">Intro. a la Investigación (3 cr) - Nota: 19</div>
+    <div class="curso">Bioquímica (5 cr) - Req: Química - Nota: 14</div>
+    <div class="curso">Anatomía General (3 cr)</div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 3</h2>
+    <div class="curso">Morfofisiología II (7 cr)</div>
+    <div class="curso">Inmunología (3 cr)</div>
+    <div class="curso">Genética Médica (3 cr)</div>
+    <div class="curso">Filosofía (3 cr) - Nota: 20</div>
+    <div class="curso">Estadística General (4 cr) - Nota: 14</div>
+    <div class="curso">Educación Ambiental (2 cr) - Nota: 17</div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 4</h2>
+    <div class="curso">Morfofisiología III (7 cr)</div>
+    <div class="curso">Infectología Básica (5 cr)</div>
+    <div class="curso">Fisiopatología I (4 cr)</div>
+    <div class="curso">Desarrollo y Crecimiento (3 cr)</div>
+    <div class="curso">Bioética (2 cr)</div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 5</h2>
+    <div class="curso">Salud Mental (4 cr)</div>
+    <div class="curso">Morfofisiología IV (6 cr)</div>
+    <div class="curso">Fund. de Medicina Intercultural (2 cr)</div>
+    <div class="curso">Fisiopatología II (5 cr)</div>
+    <div class="curso">Bioestadística (2 cr) - Nota: 14</div>
+  </div>
+
+  <div class="ciclo">
+    <h2>Ciclo 6</h2>
+    <div class="curso">Semiología basada en simulación (2 cr)</div>
+    <div class="curso">Semiología (5 cr)</div>
+    <div class="curso">Farmacología (6 cr)</div>
+    <div class="curso">Apoyo al Diagnóstico (3 cr)</div>
+    <div class="curso">Anatomía Patológica (4 cr)</div>
+  </div>
+
+</div>
+
 </body>
 </html>
