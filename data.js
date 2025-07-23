@@ -1,6 +1,6 @@
 // data.js
 
-export const coursesByCycle = {
+const malla = [
   'Ciclo 1': [
     'Química',
     'Matemática',
@@ -88,3 +88,4 @@ export const courseRequirements = {
   'Apoyo al Diagnóstico': ['Morfofisiología IV'],
   'Anatomía Patológica': ['Fisiopatología II']
 };
+window.malla = malla;
