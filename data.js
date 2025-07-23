@@ -1,73 +1,85 @@
-window.malla = {
-  'Ciclo 1': [
-    'Química',
-    'Matemática',
-    'Lengua y Oratoria',
-    'Introducción a la Medicina',
-    'Desempeño Universitario',
-    'Biología Celular y Molecular'
-  ],
-  'Ciclo 2': [
-    'Redacción General',
-    'Realidad Nacional',
-    'Morfofisiología I',
-    'Introducción a la Investigación',
-    'Bioquímica',
-    'Anatomía General'
-  ],
-  'Ciclo 3': [
-    'Morfofisiología II',
-    'Inmunología',
-    'Genética Médica',
-    'Filosofía',
-    'Estadística General',
-    'Educación Ambiental'
-  ],
-  'Ciclo 4': [
-    'Morfofisiología III',
-    'Infectología básica',
-    'Fisiopatología I',
-    'Desarrollo y Crecimiento',
-    'Bioética'
-  ],
-  'Ciclo 5': [
-    'Salud Mental',
-    'Morfofisiología IV',
-    'Fundamentos de Medicina Intercultural',
-    'Fisiopatología II',
-    'Bioestadística'
-  ],
-  'Ciclo 6': [
-    'Semiología basada en la simulación',
-    'Semiología',
-    'Farmacología',
-    'Apoyo al Diagnóstico',
-    'Anatomía Patológica'
-  ]
-};
-
-export const courseRequirements = {
-  'Redacción General': ['Lengua y Oratoria'],
-  'Realidad Nacional': ['Lengua y Oratoria', 'Desempeño Universitario'],
-  'Morfofisiología I': ['Biología Celular y Molecular'],
-  'Bioquímica': ['Química'],
-  'Anatomía General': ['Biología Celular y Molecular'],
-  'Morfofisiología II': ['Anatomía General', 'Morfofisiología I'],
-  'Inmunología': ['Morfofisiología I'],
-  'Genética Médica': ['Biología Celular y Molecular'],
-  'Estadística General': ['Matemática'],
-  'Morfofisiología III': ['Anatomía General', 'Morfofisiología I'],
-  'Infectología básica': ['Bioquímica', 'Morfofisiología I'],
-  'Fisiopatología I': ['Morfofisiología II'],
-  'Desarrollo y Crecimiento': ['Biología Celular y Molecular'],
-  'Bioética': ['Introducción a la Medicina', 'Redacción General'],
-  'Salud Mental': ['Filosofía'],
-  'Morfofisiología IV': ['Morfofisiología III'],
-  'Fundamentos de Medicina Intercultural': ['Filosofía', 'Realidad Nacional'],
-  'Fisiopatología II': ['Morfofisiología II'],
-  'Bioestadística': ['Estadística General'],
-  'Semiología basada en la simulación': [
-    'Fisiopatología I',
-    'Fisiopatología II',
-    'Inmunología',
-    'Morfofisiolog
+export const ciclos = [
+  {
+    numero: 1,
+    cursos: [
+      { nombre: "Quimica", prerequisitos: [] },
+      { nombre: "Matematica", prerequisitos: [] },
+      { nombre: "Lengua y Oratoria", prerequisitos: [] },
+      { nombre: "Introduccion a la Medicina", prerequisitos: [] },
+      { nombre: "Desempeno Universitario", prerequisitos: [] },
+      { nombre: "Biologia Celular y Molecular", prerequisitos: [] }
+    ]
+  },
+  {
+    numero: 2,
+    cursos: [
+      { nombre: "Redaccion General", prerequisitos: ["Lengua y Oratoria"] },
+      { nombre: "Realidad Nacional", prerequisitos: ["Lengua y Oratoria", "Desempeno Universitario"] },
+      { nombre: "Morfofisiologia I", prerequisitos: ["Biologia Celular y Molecular"] },
+      { nombre: "Intro. a la Investigacion", prerequisitos: [] },
+      { nombre: "Bioquimica", prerequisitos: ["Quimica"] },
+      { nombre: "Anatomia General", prerequisitos: ["Biologia Celular y Molecular"] }
+    ]
+  },
+  {
+    numero: 3,
+    cursos: [
+      { nombre: "Morfofisiologia II", prerequisitos: ["Anatomia General", "Morfofisiologia I"] },
+      { nombre: "Inmunología", prerequisitos: ["Morfofisiologia I"] },
+      { nombre: "Genetica Medica", prerequisitos: ["Biologia Celular y Molecular"] },
+      { nombre: "Filosofia", prerequisitos: [] },
+      { nombre: "Estadistica General", prerequisitos: ["Matematica"] },
+      { nombre: "Educacion Ambiental", prerequisitos: [] }
+    ]
+  },
+  {
+    numero: 4,
+    cursos: [
+      { nombre: "Morfofisiologia III", prerequisitos: ["Anatomia General", "Morfofisiologia I"] },
+      { nombre: "Infectologia básica", prerequisitos: ["Bioquimica", "Morfofisiologia I"] },
+      { nombre: "Fisiopatologia I", prerequisitos: ["Morfofisiologia II"] },
+      { nombre: "Desarrollo y Crecimiento", prerequisitos: ["Biologia Celular y Molecular"] },
+      { nombre: "Bioetica", prerequisitos: ["Introduccion a la Medicina", "Redaccion General"] }
+    ]
+  },
+  {
+    numero: 5,
+    cursos: [
+      { nombre: "Salud mental", prerequisitos: ["Filosofia"] },
+      { nombre: "Morfofisiologia IV", prerequisitos: ["Morfofisiologia III"] },
+      { nombre: "Fundamentos de Medicina Intercultural", prerequisitos: ["Filosofia", "Realidad Nacional"] },
+      { nombre: "Fisiopatologia II", prerequisitos: ["Morfofisiologia II"] },
+      { nombre: "Bioestadistica", prerequisitos: ["Estadistica General"] }
+    ]
+  },
+  {
+    numero: 6,
+    cursos: [
+      {
+        nombre: "Semiologia basada en la simulación",
+        prerequisitos: [
+          "Fisiopatologia I",
+          "Fisiopatologia II",
+          "Inmunología",
+          "Morfofisiologia II",
+          "Morfofisiologia III",
+          "Morfofisiologia IV"
+        ]
+      },
+      {
+        nombre: "Semiologia",
+        prerequisitos: [
+          "Fisiopatologia I",
+          "Fisiopatologia II",
+          "Inmunología",
+          "Morfofisiologia II",
+          "Morfofisiologia III",
+          "Morfofisiologia IV"
+        ]
+      },
+      { nombre: "Farmacologia", prerequisitos: ["Infectologia básica"] },
+      { nombre: "Apoyo al Diagnostico", prerequisitos: ["Morfofisiologia IV"] },
+      { nombre: "Anatomia Patologica", prerequisitos: ["Fisiopatologia II"] }
+    ]
+  }
+];
