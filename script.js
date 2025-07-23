@@ -1,4 +1,4 @@
-export const malla = [
+const malla = [
   {
     numero: 1,
     cursos: [
