@@ -2,7 +2,8 @@ let cursos = {};
 let completados = new Set();
 
 document.addEventListener("DOMContentLoaded", () => {
-  mostrarMalla(window.malla);
+  cursos = window.malla;
+  renderCiclos();
 });
 
 function renderCiclos() {
