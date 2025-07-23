@@ -1,4 +1,4 @@
-const malla = {
+window.malla = {
   'Ciclo 1': [
     'Química',
     'Matemática',
